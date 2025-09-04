@@ -39,7 +39,9 @@ public class AlunoController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    // @PutMapping
-
+    @PutMapping("/{id}")
+    private Aluno atualizarAluno(@PathVariable Long id, @RequestBody Aluno aluno){
+        return alunoService.updateAluno(id, aluno);
+    }
 
 }
