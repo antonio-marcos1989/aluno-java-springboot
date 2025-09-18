@@ -16,6 +16,9 @@ public class Aluno {
     private String email;
     private String senha;
 
+    @OneToOne(mappedBy = "aluno", cascade = CascadeType.ALL)
+    private Endereco endereco;
+
     public Aluno() {
     }
 
@@ -65,5 +68,13 @@ public class Aluno {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 }

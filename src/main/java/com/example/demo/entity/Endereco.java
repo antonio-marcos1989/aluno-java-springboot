@@ -1,9 +1,6 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Endereco {
@@ -16,6 +13,10 @@ public class Endereco {
     private int numero;
     private String complemento;
     private String cep;
+
+    @OneToOne
+    @JoinColumn(name = "aluno_id", referencedColumnName = "id")
+    private Aluno aluno;
 
     public Endereco() {
     }
@@ -66,5 +67,13 @@ public class Endereco {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 }
