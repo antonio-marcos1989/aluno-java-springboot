@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +17,7 @@ public class Endereco {
 
     @OneToOne
     @JoinColumn(name = "aluno_id", referencedColumnName = "id")
+    @JsonIgnore
     private Aluno aluno;
 
     public Endereco() {
