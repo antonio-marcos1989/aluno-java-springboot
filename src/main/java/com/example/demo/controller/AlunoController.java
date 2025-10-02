@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.AlunoDTO;
 import com.example.demo.entity.Aluno;
 import com.example.demo.service.AlunoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class AlunoController {
     }
 
     @PostMapping
-    private AlunoDTO criarAluno(@RequestBody Aluno aluno){
+    private AlunoDTO criarAluno(@Valid @RequestBody Aluno aluno){
         return alunoService.saveAluno(aluno);
     }
 

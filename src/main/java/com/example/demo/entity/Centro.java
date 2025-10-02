@@ -1,9 +1,8 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Centro {
@@ -13,6 +12,9 @@ public class Centro {
     private Long id;
     private String sigla;
     private String nome;
+
+    @OneToMany(mappedBy = "centro", cascade = CascadeType.ALL)
+    private List<Curso> cursos;
 
     public Centro() {
     }
@@ -45,5 +47,13 @@ public class Centro {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Curso> getCursos() {
+        return cursos;
+    }
+
+    public void setCursos(List<Curso> cursos) {
+        this.cursos = cursos;
     }
 }
